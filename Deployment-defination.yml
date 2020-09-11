@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: spring-k8s-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: spring-k8s-example
+  template:
+    metadata:
+      labels:
+        name: spring-k8s-example
+    spec:
+      containers:
+        - name: spring-k8s-eample
+          image: patilashwin/spring-k8s-example:1.0
+          ports:
+            - containerPort: 8090
+          env:
+          - name: my-custom-port
+            value: 8090
