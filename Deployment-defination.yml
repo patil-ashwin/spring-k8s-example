@@ -14,7 +14,10 @@ spec:
     spec:
       containers:
         - name: spring-k8s-eample
-          image: patilashwin/spring-k8s-example:1.0
+          image: patilashwin/spring-k8s-example:1.1
+          env:
+          - name: JAVA_OPTS
+            value: "-XX:+UseG1GC -XX:+UseStringDeduplication -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
           ports:
             - containerPort: 8090
 ---
